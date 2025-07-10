@@ -465,10 +465,10 @@ img {
    =========================== */
 .audio-indicator {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     left: 20px;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(10px);
     transition: all var(--transition-fast);
 }
 
@@ -564,7 +564,7 @@ img {
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-30px) translateY(-10px);
+        transform: translateX(-30px) translateY(10px);
     }
     to {
         opacity: 1;
