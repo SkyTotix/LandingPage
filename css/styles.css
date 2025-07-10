@@ -423,12 +423,7 @@ img {
     object-fit: cover;
 }
 
-.hero-video-container img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-}
+/* Estilos de video solo (imagen removida para mejor carga en móvil) */
 
 .video-overlay {
     position: absolute;
