@@ -78,12 +78,24 @@
                     Descubre tu próxima gran aventura entre nuestras páginas.
                 </p>
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#contact" class="btn btn-primary">Visítanos</a>
-                    <a href="#about" class="btn btn-secondary">Conoce más</a>
+                    <a href="#contact" class="btn btn-primary btn-large">Reserva tu visita gratuita</a>
+                    <a href="#about" class="btn btn-secondary btn-large">Conoce más</a>
                 </div>
             </div>
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="600">
-                <img src="images/hero-bookstore.jpg" alt="MR.BEELECTOR Interior">
+            <div class="hero-media" data-aos="fade-left" data-aos-delay="600">
+                <div class="hero-video-container">
+                    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-bookstore.jpg">
+                        <source src="videos/hero-bookstore-tour.mp4" type="video/mp4">
+                        <source src="videos/hero-bookstore-tour.webm" type="video/webm">
+                        <!-- Fallback image if video doesn't load -->
+                        <img src="images/hero-bookstore.jpg" alt="MR.BEELECTOR Interior">
+                    </video>
+                    <div class="video-overlay">
+                        <button class="play-pause-btn" id="videoToggle">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -318,6 +330,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20reservar%20una%20visita%20a%20MR.BEELECTOR" 
+       class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+    </a>
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="back-to-top">

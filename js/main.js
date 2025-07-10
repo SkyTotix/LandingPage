@@ -502,10 +502,76 @@ const notificationStyles = `
 document.head.insertAdjacentHTML('beforeend', notificationStyles);
 
 // ===========================
+// CONTROL DE VIDEO HERO
+// ===========================
+function initHeroVideo() {
+    const video = document.querySelector('.hero-video');
+    const playPauseBtn = document.getElementById('videoToggle');
+    
+    if (video && playPauseBtn) {
+        // Función para alternar play/pause
+        const toggleVideo = () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                
+                // Animación del botón
+                anime({
+                    targets: playPauseBtn,
+                    scale: [1, 1.2, 1],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            } else {
+                video.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                
+                // Animación del botón
+                anime({
+                    targets: playPauseBtn,
+                    scale: [1, 1.2, 1],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            }
+        };
+        
+        // Event listeners
+        playPauseBtn.addEventListener('click', toggleVideo);
+        video.addEventListener('click', toggleVideo);
+        
+        // Ocultar botón cuando el video termina
+        video.addEventListener('ended', () => {
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            setTimeout(() => {
+                video.currentTime = 0;
+                video.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }, 2000);
+        });
+        
+        // Auto-pause when out of view (performance optimization)
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && !video.paused) {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+        }, { threshold: 0.25 });
+        
+        videoObserver.observe(video);
+    }
+}
+
+// ===========================
 // INICIALIZACIÓN
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
     console.log('MR.BEELECTOR - Landing Page cargada exitosamente');
+    
+    // Inicializar video hero
+    initHeroVideo();
     
     // Detectar preferencia de movimiento reducido
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -514,4 +580,46 @@ document.addEventListener('DOMContentLoaded', () => {
         AOS.refresh();
         console.log('Animaciones reducidas por preferencia del usuario');
     }
+    
+    // ===========================
+    // ANIMACIÓN MEJORADA PARA BOTONES GRANDES
+    // ===========================
+    const largeBtns = document.querySelectorAll('.btn-large');
+    largeBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            anime({
+                targets: btn,
+                scale: 1.05,
+                duration: 200,
+                easing: 'easeOutQuad'
+            });
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            anime({
+                targets: btn,
+                scale: 1,
+                duration: 200,
+                easing: 'easeOutQuad'
+            });
+        });
+        
+        btn.addEventListener('mousedown', () => {
+            anime({
+                targets: btn,
+                scale: 0.95,
+                duration: 100,
+                easing: 'easeOutQuad'
+            });
+        });
+        
+        btn.addEventListener('mouseup', () => {
+            anime({
+                targets: btn,
+                scale: 1.05,
+                duration: 100,
+                easing: 'easeOutQuad'
+            });
+        });
+    });
 }); 
