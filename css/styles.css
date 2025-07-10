@@ -228,7 +228,7 @@ img {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, var(--bg-light) 0%, rgba(242, 233, 109, 0.15) 100%);
+    background: var(--bg-light);
     overflow: hidden;
     padding-top: 80px;
 }
@@ -580,7 +580,7 @@ img {
 .card-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -709,7 +709,7 @@ img {
    =========================== */
 .newsletter {
     padding: var(--spacing-lg) 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     color: var(--secondary-color);
     text-align: center;
 }
