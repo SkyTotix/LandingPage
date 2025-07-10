@@ -90,22 +90,23 @@
                         <!-- Fallback image if video doesn't load -->
                         <img src="images/hero-bookstore.jpg" alt="MR.BEELECTOR Interior">
                     </video>
+                    <!-- Indicador de audio - izquierda -->
+                    <div class="audio-indicator" id="audioIndicator">
+                        <button class="audio-toggle-btn" id="audioToggle">
+                            <i class="fas fa-volume-up"></i>
+                            <span>Activar audio</span>
+                        </button>
+                    </div>
+                    <!-- Botón de pausa/play - derecha -->
                     <div class="video-overlay">
                         <button class="play-pause-btn" id="videoToggle">
                             <i class="fas fa-pause"></i>
                         </button>
-                        <!-- Indicador de audio -->
-                        <div class="audio-indicator" id="audioIndicator">
-                            <button class="audio-toggle-btn" id="audioToggle">
-                                <i class="fas fa-volume-up"></i>
-                                <span>Activar audio</span>
-                            </button>
-                        </div>
-                        <!-- Mensaje de autoplay bloqueado -->
-                        <div class="autoplay-notice" id="autoplayNotice">
-                            <i class="fas fa-volume-up"></i>
-                            <p>¡Haz clic para activar el audio del tour virtual!</p>
-                        </div>
+                    </div>
+                    <!-- Mensaje de autoplay bloqueado - centro -->
+                    <div class="autoplay-notice" id="autoplayNotice">
+                        <i class="fas fa-volume-up"></i>
+                        <p>¡Haz clic para activar el audio del tour virtual!</p>
                     </div>
                 </div>
             </div>
