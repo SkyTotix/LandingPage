@@ -27,5 +27,6 @@
     "api/contact.js": {
       "maxDuration": 30
     }
-  }
+  },
+  "outputDirectory": "."
 } 
