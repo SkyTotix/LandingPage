@@ -3,12 +3,12 @@
    =========================== */
 :root {
     /* Colores principales */
-    --primary-color: #D2691E; /* Saddle Brown - Color cálido de libro */
-    --secondary-color: #8B4513; /* Darker Brown */
-    --accent-color: #FFD700; /* Gold - Para detalles */
-    --text-dark: #333333;
-    --text-light: #666666;
-    --bg-light: #FAF8F5;
+    --primary-color: #F2E96D; /* Amarillo vibrante - Color principal */
+    --secondary-color: #090B0D; /* Negro/Gris oscuro - Para contraste */
+    --accent-color: #F2E96D; /* Amarillo - Para detalles */
+    --text-dark: #090B0D;
+    --text-light: #4A4A4A;
+    --bg-light: #F2F2F2;
     --bg-white: #FFFFFF;
     
     /* Tipografía */
@@ -198,7 +198,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     transition: var(--transition-fast);
 }
 
@@ -228,7 +228,7 @@ img {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, var(--bg-light) 0%, rgba(210, 105, 30, 0.1) 100%);
+    background: linear-gradient(135deg, var(--bg-light) 0%, rgba(242, 233, 109, 0.15) 100%);
     overflow: hidden;
     padding-top: 80px;
 }
@@ -344,25 +344,28 @@ img {
 
 .btn-primary {
     background: var(--primary-color);
-    color: white;
-    box-shadow: 0 5px 20px rgba(210, 105, 30, 0.3);
+    color: var(--secondary-color);
+    box-shadow: 0 5px 20px rgba(242, 233, 109, 0.3);
+    font-weight: 700;
 }
 
 .btn-primary:hover {
     background: var(--secondary-color);
+    color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(210, 105, 30, 0.4);
+    box-shadow: 0 8px 25px rgba(9, 11, 13, 0.4);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    font-weight: 600;
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
+    background: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .hero-image {
@@ -588,7 +591,7 @@ img {
 
 .card-icon i {
     font-size: 2rem;
-    color: white;
+    color: var(--secondary-color);
 }
 
 .experience-card:hover .card-icon {
@@ -707,7 +710,7 @@ img {
 .newsletter {
     padding: var(--spacing-lg) 0;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    color: var(--secondary-color);
     text-align: center;
 }
 
@@ -786,7 +789,7 @@ img {
     align-items: center;
     justify-content: center;
     background: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
     border-radius: 50%;
     font-size: 1.2rem;
     transition: var(--transition-fast);
@@ -831,7 +834,7 @@ img {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+    box-shadow: 0 0 0 3px rgba(242, 233, 109, 0.2);
 }
 
 .btn-block {
@@ -842,8 +845,8 @@ img {
    FOOTER
    =========================== */
 .footer {
-    background: var(--text-dark);
-    color: white;
+    background: var(--secondary-color);
+    color: var(--bg-light);
     padding: var(--spacing-lg) 0 var(--spacing-sm);
 }
 
@@ -932,7 +935,7 @@ img {
     width: 50px;
     height: 50px;
     background: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: center;
