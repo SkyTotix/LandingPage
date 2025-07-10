@@ -502,26 +502,129 @@ const notificationStyles = `
 document.head.insertAdjacentHTML('beforeend', notificationStyles);
 
 // ===========================
-// CONTROL DE VIDEO HERO
+// CONTROL DE VIDEO HERO CON AUDIO
 // ===========================
 function initHeroVideo() {
     const video = document.querySelector('.hero-video');
     const playPauseBtn = document.getElementById('videoToggle');
+    const audioIndicator = document.getElementById('audioIndicator');
+    const audioToggle = document.getElementById('audioToggle');
+    const autoplayNotice = document.getElementById('autoplayNotice');
+    const videoContainer = document.querySelector('.hero-video-container');
     
     if (video && playPauseBtn) {
-        // Intentar reproducir con audio, si falla, reproducir sin audio
-        const startVideo = () => {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                }).catch(() => {
-                    // Si falla el autoplay con audio, reproducir sin audio
+        let audioEnabled = false;
+        let videoPlaying = false;
+        
+        // Configurar video para intentar autoplay con audio
+        video.muted = false;  // Intentar con audio primero
+        video.volume = 0.7;   // Volumen moderado
+        
+        // Función para mostrar controles de audio
+        const showAudioControls = () => {
+            if (audioIndicator) {
+                audioIndicator.classList.add('show');
+                videoContainer.classList.add('video-controls-animated');
+            }
+        };
+        
+        // Función para mostrar notificación de autoplay bloqueado
+        const showAutoplayNotice = () => {
+            if (autoplayNotice) {
+                autoplayNotice.classList.add('show');
+                
+                // Ocultar después de 5 segundos
+                setTimeout(() => {
+                    autoplayNotice.classList.remove('show');
+                }, 5000);
+            }
+        };
+        
+        // Función para ocultar controles de audio
+        const hideAudioControls = () => {
+            if (audioIndicator) {
+                audioIndicator.classList.remove('show');
+            }
+            if (autoplayNotice) {
+                autoplayNotice.classList.remove('show');
+            }
+        };
+        
+        // Intentar autoplay con audio agresivo
+        const attemptAutoplayWithAudio = async () => {
+            try {
+                // Primer intento: reproducir con audio
+                await video.play();
+                videoPlaying = true;
+                audioEnabled = true;
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                
+                console.log('✅ Video iniciado con audio automáticamente');
+                
+                // Mostrar indicador brevemente para confirmar que tiene audio
+                showAudioControls();
+                setTimeout(() => {
+                    if (audioEnabled && !video.muted) {
+                        hideAudioControls();
+                    }
+                }, 3000);
+                
+            } catch (error) {
+                console.log('❌ Autoplay con audio bloqueado:', error.message);
+                
+                try {
+                    // Segundo intento: reproducir sin audio
                     video.muted = true;
-                    video.play().then(() => {
-                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    });
+                    await video.play();
+                    videoPlaying = true;
+                    audioEnabled = false;
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    
+                    console.log('⚠️ Video iniciado sin audio (muted)');
+                    
+                    // Mostrar controles para activar audio
+                    showAudioControls();
+                    showAutoplayNotice();
+                    
+                } catch (mutedError) {
+                    console.log('❌ Autoplay completamente bloqueado:', mutedError.message);
+                    videoPlaying = false;
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    showAutoplayNotice();
+                }
+            }
+        };
+        
+        // Función para alternar audio
+        const toggleAudio = () => {
+            if (video.muted) {
+                video.muted = false;
+                audioEnabled = true;
+                audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Audio activado</span>';
+                console.log('🔊 Audio activado');
+                
+                // Ocultar controles después de mostrar confirmación
+                setTimeout(() => {
+                    hideAudioControls();
+                }, 2000);
+                
+                // Animación de éxito
+                anime({
+                    targets: audioToggle,
+                    scale: [1, 1.2, 1],
+                    duration: 400,
+                    easing: 'easeOutQuad'
                 });
+                
+            } else {
+                video.muted = true;
+                audioEnabled = false;
+                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i><span>Audio desactivado</span>';
+                console.log('🔇 Audio desactivado');
+                
+                setTimeout(() => {
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i><span>Activar audio</span>';
+                }, 1500);
             }
         };
         
@@ -530,63 +633,92 @@ function initHeroVideo() {
             if (video.paused) {
                 video.play();
                 playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                videoPlaying = true;
                 
-                // Animación del botón
-                anime({
-                    targets: playPauseBtn,
-                    scale: [1, 1.2, 1],
-                    duration: 300,
-                    easing: 'easeOutQuad'
-                });
+                // Si es la primera reproducción y no hay audio, mostrar controles
+                if (video.muted && !audioEnabled) {
+                    showAudioControls();
+                }
+                
             } else {
                 video.pause();
                 playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                
-                // Animación del botón
-                anime({
-                    targets: playPauseBtn,
-                    scale: [1, 1.2, 1],
-                    duration: 300,
-                    easing: 'easeOutQuad'
-                });
+                videoPlaying = false;
             }
+            
+            // Animación del botón
+            anime({
+                targets: playPauseBtn,
+                scale: [1, 1.2, 1],
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
         };
         
         // Event listeners
         playPauseBtn.addEventListener('click', toggleVideo);
         video.addEventListener('click', toggleVideo);
         
-        // Intentar habilitar audio en primer click
-        video.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-            }
-        }, { once: true });
+        // Listener para el botón de audio
+        if (audioToggle) {
+            audioToggle.addEventListener('click', toggleAudio);
+        }
         
-        // Ocultar botón cuando el video termina
+        // Listener para la notificación de autoplay
+        if (autoplayNotice) {
+            autoplayNotice.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                if (video.muted) {
+                    toggleAudio();
+                }
+                autoplayNotice.classList.remove('show');
+            });
+        }
+        
+        // Manejo del final del video
         video.addEventListener('ended', () => {
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
             setTimeout(() => {
                 video.currentTime = 0;
-                video.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }, 2000);
+                if (!video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+            }, 1000);
         });
         
-        // Iniciar video
-        startVideo();
-        
-        // Auto-pause when out of view (performance optimization)
+        // Auto-pause cuando está fuera de vista (optimización de rendimiento)
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting && !video.paused) {
                     video.pause();
                     playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    videoPlaying = false;
                 }
             });
         }, { threshold: 0.25 });
         
         videoObserver.observe(video);
+        
+        // Intentar iniciar video con un pequeño delay
+        setTimeout(() => {
+            attemptAutoplayWithAudio();
+        }, 500);
+        
+        // Fallback: Intentar activar audio en cualquier interacción del usuario
+        const enableAudioOnInteraction = () => {
+            if (video.muted && videoPlaying) {
+                showAudioControls();
+            }
+        };
+        
+        // Escuchar interacciones del usuario en toda la página
+        document.addEventListener('click', enableAudioOnInteraction, { once: true });
+        document.addEventListener('keydown', enableAudioOnInteraction, { once: true });
+        document.addEventListener('scroll', enableAudioOnInteraction, { once: true });
     }
 }
 
