@@ -166,11 +166,11 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
 .logo img {
-    height: 50px;
+    height: 75px;
     transition: var(--transition-fast);
 }
 
