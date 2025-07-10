@@ -509,6 +509,22 @@ function initHeroVideo() {
     const playPauseBtn = document.getElementById('videoToggle');
     
     if (video && playPauseBtn) {
+        // Intentar reproducir con audio, si falla, reproducir sin audio
+        const startVideo = () => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }).catch(() => {
+                    // Si falla el autoplay con audio, reproducir sin audio
+                    video.muted = true;
+                    video.play().then(() => {
+                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    });
+                });
+            }
+        };
+        
         // Función para alternar play/pause
         const toggleVideo = () => {
             if (video.paused) {
@@ -540,6 +556,13 @@ function initHeroVideo() {
         playPauseBtn.addEventListener('click', toggleVideo);
         video.addEventListener('click', toggleVideo);
         
+        // Intentar habilitar audio en primer click
+        video.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+            }
+        }, { once: true });
+        
         // Ocultar botón cuando el video termina
         video.addEventListener('ended', () => {
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
@@ -549,6 +572,9 @@ function initHeroVideo() {
                 playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
             }, 2000);
         });
+        
+        // Iniciar video
+        startVideo();
         
         // Auto-pause when out of view (performance optimization)
         const videoObserver = new IntersectionObserver((entries) => {
