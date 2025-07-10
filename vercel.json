@@ -3,8 +3,7 @@
   "routes": [
     {
       "src": "/api/contact",
-      "dest": "/api/contact.js",
-      "methods": ["GET", "POST", "OPTIONS"]
+      "dest": "/api/contact.js"
     },
     {
       "src": "/css/(.*)",
@@ -27,6 +26,5 @@
     "api/contact.js": {
       "maxDuration": 30
     }
-  },
-  "outputDirectory": "."
+  }
 } 
