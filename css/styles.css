@@ -405,10 +405,10 @@ img {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     transform: perspective(1000px) rotateY(-10deg);
     transition: var(--transition-medium);
-    max-width: 450px;
+    max-width: 300px;
     width: 100%;
     margin: 0 auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: 9/16;
 }
 
 .hero-video-container:hover {
@@ -1178,9 +1178,9 @@ img {
     }
     
     .hero-video-container {
-        max-width: 350px;
+        max-width: 280px;
         transform: perspective(1000px) rotateY(0deg);
-        aspect-ratio: 16/9;
+        aspect-ratio: 9/16;
     }
     
     .hero-video {
@@ -1232,7 +1232,7 @@ img {
     }
     
     .hero-video-container {
-        max-width: 300px;
-        aspect-ratio: 16/9;
+        max-width: 250px;
+        aspect-ratio: 9/16;
     }
 } 
