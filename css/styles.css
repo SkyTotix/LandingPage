@@ -170,7 +170,7 @@ img {
 }
 
 .logo img {
-    height: 90px;
+    height: 110px;
     transition: var(--transition-fast);
 }
 
