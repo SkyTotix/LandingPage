@@ -405,6 +405,9 @@ img {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     transform: perspective(1000px) rotateY(-10deg);
     transition: var(--transition-medium);
+    max-width: 500px;
+    max-height: 400px;
+    margin: 0 auto;
 }
 
 .hero-video-container:hover {
@@ -416,6 +419,8 @@ img {
     height: auto;
     display: block;
     border-radius: 20px;
+    object-fit: cover;
+    max-height: 400px;
 }
 
 .hero-video-container img {
@@ -1169,6 +1174,16 @@ img {
     .btn-large {
         min-width: 280px;
         padding: 18px 35px;
+    }
+    
+    .hero-video-container {
+        max-width: 350px;
+        max-height: 280px;
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    
+    .hero-video {
+        max-height: 280px;
     }
     
     .timeline-item,
