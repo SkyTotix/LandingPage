@@ -9,11 +9,24 @@
   "routes": [
     {
       "src": "/api/contact",
-      "dest": "/api/contact.js"
+      "dest": "/api/contact.js",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ],
   "functions": {

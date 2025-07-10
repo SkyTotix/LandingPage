@@ -2,11 +2,11 @@
   "name": "mr-beelector-landing",
   "version": "1.0.0",
   "description": "Landing page para librería MR.BEELECTOR",
-  "main": "api/contact.js",
+  "main": "index.html",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "echo 'No build needed'"
+    "build": "echo 'Static site - no build required'"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.50.4",
