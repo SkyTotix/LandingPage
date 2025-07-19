@@ -13,20 +13,50 @@ AOS.init({
 // ===========================
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    anime({
-        targets: preloader,
-        opacity: 0,
-        duration: 1000,
-        easing: 'easeOutQuad',
+    const book = preloader.querySelector('.book');
+    const leftPage = preloader.querySelector('.left');
+    const rightPage = preloader.querySelector('.right');
+
+    // Detener animación CSS
+    book.style.animation = 'none';
+
+    // Timeline de animación mejorada
+    const tl = anime.timeline({
+        easing: 'easeInOutQuad',
         complete: () => {
             preloader.style.display = 'none';
         }
     });
-});
 
-// ===========================
-// NAVEGACIÓN
-// ===========================
+    // Abrir el libro
+    tl.add({
+        targets: leftPage,
+        rotateY: -90,
+        duration: 800
+    }, 0)
+    .add({
+        targets: rightPage,
+        rotateY: 90,
+        duration: 800
+    }, 0)
+    // Cerrar el libro
+    .add({
+        targets: leftPage,
+        rotateY: 0,
+        duration: 800
+    }, 800)
+    .add({
+        targets: rightPage,
+        rotateY: 0,
+        duration: 800
+    }, 800)
+    // Desvanecer
+    .add({
+        targets: preloader,
+        opacity: 0,
+        duration: 600
+    }, 1600);
+});
 const navbar = document.getElementById('navbar');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -780,4 +810,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-}); 
+});
