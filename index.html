@@ -1,17 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Meta tags básicos para SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MR.BEELECTOR - Tu Refugio Literario</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Título optimizado para SEO -->
+    <title>MR.BEELECTOR - Librería y Café Literario | Tu Refugio de Libros</title>
     
-    <!-- Google Fonts -->
+    <!-- Meta descripción para SEO -->
+    <meta name="description" content="MR.BEELECTOR es tu librería y café literario ideal. Descubre libros únicos, eventos culturales, club de lectura y un espacio acogedor para los amantes de la literatura. Visítanos y vive la experiencia literaria completa.">
+    
+    <!-- Palabras clave para SEO -->
+    <meta name="keywords" content="librería, café literario, libros, eventos culturales, club de lectura, MR.BEELECTOR, literatura, novelas, cuentos, poesía, presentaciones de libros, talleres de escritura">
+    
+    <!-- Meta tags para redes sociales (Open Graph) -->
+    <meta property="og:title" content="MR.BEELECTOR - Librería y Café Literario">
+    <meta property="og:description" content="Tu refugio literario donde las historias cobran vida. Café artesanal, eventos culturales y una comunidad de lectores apasionados te esperan.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://mrbeelector.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Meta tags para Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MR.BEELECTOR - Librería y Café Literario">
+    <meta name="twitter:description" content="Tu refugio literario donde las historias cobran vida. Café artesanal, eventos culturales y una comunidad de lectores apasionados.">
+    <meta name="twitter:image" content="images/twitter-image.jpg">
+    
+    <!-- Meta tags adicionales para SEO -->
+    <meta name="author" content="MR.BEELECTOR">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://mrbeelector.com">
+    
+    <!-- Favicon optimizado -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- PWA Manifest para experiencia de aplicación móvil -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F2E96D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MR.BEELECTOR">
+    
+    <!-- Preconnect para optimización de carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Fonts optimizado -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS crítico inline para mejorar rendimiento -->
+    <style>
+        /* CSS crítico para above-the-fold */
+        body{font-family:'Poppins',sans-serif;margin:0;padding:0;overflow-x:hidden}
+        #preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);z-index:9999;display:flex;align-items:center;justify-content:center}
+        .navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
+    </style>
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -21,73 +72,144 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Datos estructurados JSON-LD para SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BookStore",
+        "name": "MR.BEELECTOR",
+        "description": "Librería y café literario donde las historias cobran vida. Ofrecemos una selección curada de libros, eventos culturales y un espacio acogedor para los amantes de la literatura.",
+        "url": "https://mrbeelector.com",
+        "telephone": "+527774933883",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Principal #123",
+            "addressLocality": "Centro Histórico",
+            "addressCountry": "MX"
+        },
+        "openingHours": [
+            "Mo-Fr 09:00-21:00",
+            "Sa-Su 10:00-20:00"
+        ],
+        "sameAs": [
+            "https://www.instagram.com/mrbeelector",
+            "https://www.facebook.com/mrbeelector",
+            "https://www.twitter.com/mrbeelector"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios MR.BEELECTOR",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Café Literario",
+                        "description": "Disfruta de café artesanal mientras lees en nuestro espacio acogedor"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Event",
+                        "name": "Eventos Culturales",
+                        "description": "Presentaciones de libros, charlas con autores y talleres de escritura"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Club de Lectura",
+                        "description": "Únete a nuestra comunidad de lectores apasionados"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
     
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="book">
-            <div class="inner">
-                <div class="left"></div>
-                <div class="middle"></div>
-                <div class="right"></div>
+    <!-- Preloader optimizado para SEO -->
+    <div id="preloader" role="status" aria-label="Cargando página de MR.BEELECTOR">
+        <div class="loader-container">
+            <div class="floating-books-loader" aria-hidden="true">
+                <div class="book-icon"></div>
+                <div class="book-icon"></div>
+                <div class="book-icon"></div>
+                <div class="book-icon"></div>
+                <div class="book-icon"></div>
+                <div class="book-icon"></div>
+            </div>
+            <div class="loader-text">MR.BEELECTOR</div>
+            <div class="loader-subtext">Preparando tu experiencia literaria...</div>
+            <div class="loading-dots" aria-hidden="true">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="images/logo.png" alt="MR.BEELECTOR Logo">
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Inicio</a></li>
-                    <li><a href="#about" class="nav-link">Nosotros</a></li>
-                    <li><a href="#experience" class="nav-link">Experiencias</a></li>
-                    <li><a href="#events" class="nav-link">Eventos</a></li>
-                    <li><a href="#contact" class="nav-link">Contacto</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <!-- Navegación principal optimizada para SEO -->
+    <header role="banner">
+        <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal de MR.BEELECTOR">
+            <div class="container-nav">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="MR.BEELECTOR - Librería y Café Literario Logo">
+                    </div>
+                    <ul class="nav-menu" role="menubar">
+                        <li role="none"><a href="#home" class="nav-link" role="menuitem" aria-label="Ir a la sección de inicio">Inicio</a></li>
+                        <li role="none"><a href="#about" class="nav-link" role="menuitem" aria-label="Conocer más sobre nosotros">Nosotros</a></li>
+                        <li role="none"><a href="#experience" class="nav-link" role="menuitem" aria-label="Descubrir nuestras experiencias">Experiencias</a></li>
+                        <li role="none"><a href="#events" class="nav-link" role="menuitem" aria-label="Ver próximos eventos">Eventos</a></li>
+                        <li role="none"><a href="#contact" class="nav-link" role="menuitem" aria-label="Contactar con nosotros">Contacto</a></li>
+                    </ul>
+                    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="floating-books">
-                <img src="images/book1.png" alt="Book" class="floating-book book-1">
-                <img src="images/book2.png" alt="Book" class="floating-book book-2">
-                <img src="images/book3.png" alt="Book" class="floating-book book-3">
-            </div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-aos="fade-up">
-                    <span class="highlight">MR.BEELECTOR</span><br>
-                    Donde las historias cobran vida
-                </h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    Más que una librería, un refugio para almas curiosas.<br>
-                    Descubre tu próxima gran aventura entre nuestras páginas.
-                </p>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#contact" class="btn btn-primary btn-large">Reserva tu visita gratuita</a>
-                    <a href="#about" class="btn btn-secondary btn-large">Conoce más</a>
+    <!-- Sección principal (Hero) optimizada para SEO -->
+    <main role="main">
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero-background" aria-hidden="true">
+                <div class="floating-books">
+                    <img src="images/book1.png" alt="Libro flotante decorativo de literatura clásica" class="floating-book book-1" loading="lazy">
+                    <img src="images/book2.png" alt="Libro flotante decorativo de novela contemporánea" class="floating-book book-2" loading="lazy">
+                    <img src="images/book3.png" alt="Libro flotante decorativo de poesía" class="floating-book book-3" loading="lazy">
                 </div>
             </div>
-            <div class="hero-media" data-aos="fade-left" data-aos-delay="600">
-                <div class="hero-video-container">
-                    <video class="hero-video" autoplay loop playsinline preload="auto">
-                        <source src="videos/hero-bookstore-tour.mp4" type="video/mp4">
-                        <source src="videos/hero-bookstore-tour.webm" type="video/webm">
-                    </video>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title" data-aos="fade-up">
+                        <span class="highlight">MR.BEELECTOR</span><br>
+                        Donde las historias cobran vida
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                        Más que una librería, un refugio para almas curiosas.<br>
+                        Descubre tu próxima gran aventura entre nuestras páginas.
+                    </p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#contact" class="btn btn-primary btn-large" aria-label="Reservar visita gratuita a MR.BEELECTOR">Reserva tu visita gratuita</a>
+                        <a href="#about" class="btn btn-secondary btn-large" aria-label="Conocer más sobre MR.BEELECTOR">Conoce más</a>
+                    </div>
+                </div>
+                <div class="hero-media" data-aos="fade-left" data-aos-delay="600">
+                    <div class="hero-video-container">
+                        <video class="hero-video" autoplay loop playsinline preload="auto" aria-label="Tour virtual por la librería MR.BEELECTOR">
+                            <source src="videos/hero-bookstore-tour.mp4" type="video/mp4">
+                            <source src="videos/hero-bookstore-tour.webm" type="video/webm">
+                            <p>Tu navegador no soporta videos HTML5. <a href="videos/hero-bookstore-tour.mp4">Descargar video del tour</a></p>
+                        </video>
                     <!-- Indicador de audio - izquierda -->
                     <div class="audio-indicator" id="audioIndicator">
                         <button class="audio-toggle-btn" id="audioToggle">
@@ -114,225 +236,234 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Nuestra Historia</h2>
-                <div class="title-decoration"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h3>Un espacio donde los libros encuentran sus lectores perfectos</h3>
-                    <p>En MR.BEELECTOR, creemos que cada libro tiene su lector ideal. Nuestra misión es crear ese encuentro mágico entre las historias y las personas que las necesitan.</p>
-                    <p>Somos más que estantes llenos de libros; somos curadores de experiencias literarias, creadores de comunidad y guardianes de la cultura escrita.</p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-book-open"></i>
-                            <span>Selección Curada</span>
+        <!-- Sección Acerca de Nosotros optimizada para SEO -->
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <header class="section-header" data-aos="fade-up">
+                    <h2 id="about-title" class="section-title">Nuestra Historia</h2>
+                    <div class="title-decoration" aria-hidden="true"></div>
+                </header>
+                <div class="about-content">
+                    <article class="about-text" data-aos="fade-right">
+                        <h3>Un espacio donde los libros encuentran sus lectores perfectos</h3>
+                        <p>En MR.BEELECTOR, creemos que cada libro tiene su lector ideal. Nuestra misión es crear ese encuentro mágico entre las historias y las personas que las necesitan.</p>
+                        <p>Somos más que estantes llenos de libros; somos curadores de experiencias literarias, creadores de comunidad y guardianes de la cultura escrita.</p>
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <i class="fas fa-book-open" aria-hidden="true"></i>
+                                <span>Selección Curada</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-coffee" aria-hidden="true"></i>
+                                <span>Café Literario</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                                <span>Comunidad Activa</span>
+                            </div>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-coffee"></i>
-                            <span>Café Literario</span>
+                    </article>
+                    <aside class="about-gallery" data-aos="fade-left">
+                        <div class="gallery-grid">
+                            <img src="images/gallery1.jpg" alt="Interior acogedor de la librería MR.BEELECTOR con estanterías de madera y iluminación cálida" class="gallery-img img-1" loading="lazy" width="300" height="200">
+                            <img src="images/gallery2.jpg" alt="Estantes organizados con libros cuidadosamente seleccionados por géneros literarios" class="gallery-img img-2" loading="lazy" width="300" height="200">
+                            <img src="images/gallery3.jpg" alt="Zona de lectura cómoda con sillones y mesa para disfrutar del café literario" class="gallery-img img-3" loading="lazy" width="300" height="200">
+                            <img src="images/gallery4.jpg" alt="Evento literario en MR.BEELECTOR con presentación de autor y audiencia" class="gallery-img img-4" loading="lazy" width="300" height="200">
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-users"></i>
-                            <span>Comunidad Activa</span>
-                        </div>
-                    </div>
+                    </aside>
                 </div>
-                <div class="about-gallery" data-aos="fade-left">
-                    <div class="gallery-grid">
-                        <img src="images/gallery1.jpg" alt="Interior librería" class="gallery-img img-1">
-                        <img src="images/gallery2.jpg" alt="Estantes de libros" class="gallery-img img-2">
-                        <img src="images/gallery3.jpg" alt="Zona de lectura" class="gallery-img img-3">
-                        <img src="images/gallery4.jpg" alt="Eventos literarios" class="gallery-img img-4">
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Vive la Experiencia MR.BEELECTOR</h2>
-                <div class="title-decoration"></div>
+        <!-- Sección de Experiencias optimizada para SEO -->
+        <section id="experience" class="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <header class="section-header" data-aos="fade-up">
+                    <h2 id="experience-title" class="section-title">Vive la Experiencia MR.BEELECTOR</h2>
+                    <div class="title-decoration" aria-hidden="true"></div>
+                </header>
+                <div class="experience-cards">
+                    <article class="experience-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <h3>Café Literario</h3>
+                        <p>Disfruta de un café artesanal mientras te sumerges en tu lectura favorita. Nuestro espacio acogedor es el lugar perfecto para desconectar del mundo.</p>
+                    </article>
+                    <article class="experience-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Eventos Culturales</h3>
+                        <p>Presentaciones de libros, charlas con autores, talleres de escritura y más. Cada semana trae nuevas oportunidades de aprendizaje y conexión.</p>
+                    </article>
+                    <article class="experience-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h3>Club de Lectura</h3>
+                        <p>Únete a nuestra comunidad de lectores apasionados. Compartimos ideas, debatimos sobre nuestras lecturas y descubrimos nuevos mundos juntos.</p>
+                    </article>
+                </div>
             </div>
-            <div class="experience-cards">
-                <div class="experience-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="card-icon">
-                        <i class="fas fa-mug-hot"></i>
-                    </div>
-                    <h3>Café Literario</h3>
-                    <p>Disfruta de un café artesanal mientras te sumerges en tu lectura favorita. Nuestro espacio acogedor es el lugar perfecto para desconectar del mundo.</p>
-                </div>
-                <div class="experience-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="card-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Eventos Culturales</h3>
-                    <p>Presentaciones de libros, charlas con autores, talleres de escritura y más. Cada semana trae nuevas oportunidades de aprendizaje y conexión.</p>
-                </div>
-                <div class="experience-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="card-icon">
-                        <i class="fas fa-book-reader"></i>
-                    </div>
-                    <h3>Club de Lectura</h3>
-                    <p>Únete a nuestra comunidad de lectores apasionados. Compartimos ideas, debatimos sobre nuestras lecturas y descubrimos nuevos mundos juntos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Events Section -->
-    <section id="events" class="events">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Próximos Eventos</h2>
-                <div class="title-decoration"></div>
+        <!-- Sección de Eventos optimizada para SEO -->
+        <section id="events" class="events" aria-labelledby="events-title">
+            <div class="container">
+                <header class="section-header" data-aos="fade-up">
+                    <h2 id="events-title" class="section-title">Próximos Eventos</h2>
+                    <div class="title-decoration" aria-hidden="true"></div>
+                </header>
+                <div class="events-timeline" role="list">
+                    <article class="timeline-item" data-aos="fade-right" role="listitem">
+                        <time class="timeline-date" datetime="2024-01-15">15 Enero</time>
+                        <div class="timeline-content">
+                            <h3>Presentación: "Susurros del Alma"</h3>
+                            <p>Conoce a la autora María González y descubre su nueva novela.</p>
+                            <span class="event-time"><i class="far fa-clock" aria-hidden="true"></i> <time datetime="19:00">7:00 PM</time></span>
+                        </div>
+                    </article>
+                    <article class="timeline-item" data-aos="fade-left" role="listitem">
+                        <time class="timeline-date" datetime="2024-01-22">22 Enero</time>
+                        <div class="timeline-content">
+                            <h3>Taller de Escritura Creativa</h3>
+                            <p>Aprende técnicas narrativas con el escritor Carlos Mendoza.</p>
+                            <span class="event-time"><i class="far fa-clock" aria-hidden="true"></i> <time datetime="17:00">5:00 PM</time></span>
+                        </div>
+                    </article>
+                    <article class="timeline-item" data-aos="fade-right" role="listitem">
+                        <time class="timeline-date" datetime="2024-01-29">29 Enero</time>
+                        <div class="timeline-content">
+                            <h3>Club de Lectura: Clásicos Latinoamericanos</h3>
+                            <p>Este mes discutiremos "Cien Años de Soledad" de García Márquez.</p>
+                            <span class="event-time"><i class="far fa-clock" aria-hidden="true"></i> <time datetime="18:30">6:30 PM</time></span>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="events-timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-date">15 Enero</div>
-                    <div class="timeline-content">
-                        <h3>Presentación: "Susurros del Alma"</h3>
-                        <p>Conoce a la autora María González y descubre su nueva novela.</p>
-                        <span class="event-time"><i class="far fa-clock"></i> 7:00 PM</span>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-date">22 Enero</div>
-                    <div class="timeline-content">
-                        <h3>Taller de Escritura Creativa</h3>
-                        <p>Aprende técnicas narrativas con el escritor Carlos Mendoza.</p>
-                        <span class="event-time"><i class="far fa-clock"></i> 5:00 PM</span>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-date">29 Enero</div>
-                    <div class="timeline-content">
-                        <h3>Club de Lectura: Clásicos Latinoamericanos</h3>
-                        <p>Este mes discutiremos "Cien Años de Soledad" de García Márquez.</p>
-                        <span class="event-time"><i class="far fa-clock"></i> 6:30 PM</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter" data-aos="zoom-in">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Mantente conectado con nosotros</h2>
-                <p>Recibe recomendaciones personalizadas y entérate primero de nuestros eventos especiales.</p>
-                <form class="newsletter-form" id="newsletter-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Visítanos o Contáctanos</h2>
-                <div class="title-decoration"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Ubicación</h3>
-                            <p>Calle Principal #123, Centro Histórico<br>Ciudad, País</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Horario</h3>
-                            <p>Lun - Vie: 9:00 AM - 9:00 PM<br>Sáb - Dom: 10:00 AM - 8:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Teléfono</h3>
-                            <p>+123 456 7890</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>hola@mrbeelector.com</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper" data-aos="fade-left">
-                    <h3>Déjanos un mensaje</h3>
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" name="nombre" placeholder="Tu nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Tu email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="telefono" placeholder="Tu teléfono">
-                        </div>
-                        <div class="form-group">
-                            <select name="interes" required>
-                                <option value="">¿Qué te interesa?</option>
-                                <option value="visita">Visitar la librería</option>
-                                <option value="eventos">Información sobre eventos</option>
-                                <option value="club">Unirme al club de lectura</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+        <!-- Sección Newsletter optimizada para SEO -->
+        <section class="newsletter" data-aos="zoom-in" aria-labelledby="newsletter-title">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 id="newsletter-title">Mantente conectado con nosotros</h2>
+                    <p>Recibe recomendaciones personalizadas y entérate primero de nuestros eventos especiales.</p>
+                    <form class="newsletter-form" id="newsletter-form" aria-label="Formulario de suscripción al newsletter">
+                        <label for="newsletter-email" class="sr-only">Correo electrónico para newsletter</label>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Tu correo electrónico" required aria-describedby="newsletter-description">
+                        <button type="submit" class="btn btn-primary" aria-label="Suscribirse al newsletter de MR.BEELECTOR">Suscribirse</button>
                     </form>
+                    <p id="newsletter-description" class="sr-only">Suscríbete para recibir recomendaciones de libros y noticias sobre eventos literarios</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+        <!-- Sección de Contacto optimizada para SEO -->
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <header class="section-header" data-aos="fade-up">
+                    <h2 id="contact-title" class="section-title">Visítanos o Contáctanos</h2>
+                    <div class="title-decoration" aria-hidden="true"></div>
+                </header>
+                <div class="contact-content">
+                    <aside class="contact-info" data-aos="fade-right">
+                        <address class="info-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <h3>Ubicación</h3>
+                                <p>Calle Principal #123, Centro Histórico<br>Ciudad, País</p>
+                            </div>
+                        </address>
+                        <div class="info-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <h3>Horario</h3>
+                                <p><time>Lun - Vie: 9:00 AM - 9:00 PM</time><br><time>Sáb - Dom: 10:00 AM - 8:00 PM</time></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <h3>Teléfono</h3>
+                                <p><a href="tel:+527774933883">+52 777 493 3883</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:hola@mrbeelector.com">hola@mrbeelector.com</a></p>
+                            </div>
+                        </div>
+                        <div class="social-links" role="list" aria-label="Redes sociales de MR.BEELECTOR">
+                            <a href="https://www.instagram.com/mrbeelector" class="social-link" role="listitem" aria-label="Síguenos en Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/mrbeelector" class="social-link" role="listitem" aria-label="Síguenos en Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://www.twitter.com/mrbeelector" class="social-link" role="listitem" aria-label="Síguenos en Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        </div>
+                    </aside>
+                    <div class="contact-form-wrapper" data-aos="fade-left">
+                        <h3>Déjanos un mensaje</h3>
+                        <form id="contact-form" class="contact-form" aria-label="Formulario de contacto">
+                            <div class="form-group">
+                                <label for="contact-nombre" class="sr-only">Nombre completo</label>
+                                <input type="text" id="contact-nombre" name="nombre" placeholder="Tu nombre" required aria-describedby="nombre-help">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email" class="sr-only">Correo electrónico</label>
+                                <input type="email" id="contact-email" name="email" placeholder="Tu email" required aria-describedby="email-help">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-telefono" class="sr-only">Número de teléfono</label>
+                                <input type="tel" id="contact-telefono" name="telefono" placeholder="Tu teléfono" aria-describedby="telefono-help">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-interes" class="sr-only">Motivo de contacto</label>
+                                <select id="contact-interes" name="interes" required aria-describedby="interes-help">
+                                    <option value="">¿Qué te interesa?</option>
+                                    <option value="visita">Visitar la librería</option>
+                                    <option value="eventos">Información sobre eventos</option>
+                                    <option value="club">Unirme al club de lectura</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-mensaje" class="sr-only">Mensaje</label>
+                                <textarea id="contact-mensaje" name="mensaje" rows="4" placeholder="Tu mensaje" aria-describedby="mensaje-help"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" aria-label="Enviar mensaje de contacto">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer optimizado para SEO -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo-white.png" alt="MR.BEELECTOR">
+                    <img src="images/logo-white.png" alt="MR.BEELECTOR - Librería y Café Literario" width="150" height="75">
                     <p>Tu refugio literario en el corazón de la ciudad.</p>
                 </div>
-                <div class="footer-links">
+                <nav class="footer-links" aria-label="Enlaces del pie de página">
                     <h4>Enlaces rápidos</h4>
-                    <ul>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#events">Eventos</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                        <li><a href="#">Blog</a></li>
+                    <ul role="list">
+                        <li role="listitem"><a href="#about" aria-label="Ir a la sección Nosotros">Nosotros</a></li>
+                        <li role="listitem"><a href="#events" aria-label="Ver eventos próximos">Eventos</a></li>
+                        <li role="listitem"><a href="#contact" aria-label="Ir a la sección de contacto">Contacto</a></li>
+                        <li role="listitem"><a href="/blog" aria-label="Visitar nuestro blog literario">Blog</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="footer-newsletter">
                     <h4>Newsletter</h4>
                     <p>Suscríbete para recibir las últimas novedades</p>
-                    <form class="footer-form">
-                        <input type="email" placeholder="Tu email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    <form class="footer-form" aria-label="Suscripción al newsletter del footer">
+                        <label for="footer-email" class="sr-only">Correo electrónico para newsletter</label>
+                        <input type="email" id="footer-email" name="email" placeholder="Tu email" required aria-label="Ingresa tu correo electrónico">
+                        <button type="submit" aria-label="Suscribirse al newsletter"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
                     </form>
                 </div>
             </div>
@@ -342,17 +473,21 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/527774933883?text=Hola,%20me%20interesa%20reservar%20una%20visita%20a%20MR.BEELECTOR" 
-       class="whatsapp-float" target="_blank" rel="noopener">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
-    </a>
+    <!-- WhatsApp Float Button optimizado para SEO -->
+    <div class="whatsapp-float" role="complementary" aria-label="Contacto por WhatsApp">
+        <a href="https://wa.me/527774933883?text=Hola,%20me%20interesa%20reservar%20una%20visita%20a%20MR.BEELECTOR" 
+           target="_blank" rel="noopener" aria-label="Contactar por WhatsApp - Abre en nueva ventana">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+            <span class="sr-only">Contactar por WhatsApp</span>
+        </a>
+    </div>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </a>
+    <!-- Back to Top Button optimizado para SEO -->
+    <button class="back-to-top" id="back-to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        <span class="sr-only">Volver al inicio</span>
+    </button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

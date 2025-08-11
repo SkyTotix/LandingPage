@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap XML para MR.BEELECTOR - Librería y Café Literario -->
+<!-- Optimizado para SEO y indexación de motores de búsqueda -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Página principal -->
+    <url>
+        <loc>https://mrbeelector.com/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Sección Nosotros -->
+    <url>
+        <loc>https://mrbeelector.com/#about</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sección Experiencia -->
+    <url>
+        <loc>https://mrbeelector.com/#experience</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Sección Eventos -->
+    <url>
+        <loc>https://mrbeelector.com/#events</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Sección Newsletter -->
+    <url>
+        <loc>https://mrbeelector.com/#newsletter</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Sección Contacto -->
+    <url>
+        <loc>https://mrbeelector.com/#contact</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog (cuando esté disponible) -->
+    <!--
+    <url>
+        <loc>https://mrbeelector.com/blog</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    -->
+
+</urlset>

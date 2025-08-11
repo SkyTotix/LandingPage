@@ -13,49 +13,17 @@ AOS.init({
 // ===========================
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    const book = preloader.querySelector('.book');
-    const leftPage = preloader.querySelector('.left');
-    const rightPage = preloader.querySelector('.right');
-
-    // Detener animación CSS
-    book.style.animation = 'none';
-
-    // Timeline de animación mejorada
-    const tl = anime.timeline({
-        easing: 'easeInOutQuad',
-        complete: () => {
+    
+    // Esperar un poco para mostrar la animación completa
+    setTimeout(() => {
+        // Agregar clase para fade out
+        preloader.classList.add('fade-out');
+        
+        // Remover completamente después de la transición
+        setTimeout(() => {
             preloader.style.display = 'none';
-        }
-    });
-
-    // Abrir el libro
-    tl.add({
-        targets: leftPage,
-        rotateY: -90,
-        duration: 800
-    }, 0)
-    .add({
-        targets: rightPage,
-        rotateY: 90,
-        duration: 800
-    }, 0)
-    // Cerrar el libro
-    .add({
-        targets: leftPage,
-        rotateY: 0,
-        duration: 800
-    }, 800)
-    .add({
-        targets: rightPage,
-        rotateY: 0,
-        duration: 800
-    }, 800)
-    // Desvanecer
-    .add({
-        targets: preloader,
-        opacity: 0,
-        duration: 600
-    }, 1600);
+        }, 500); // Tiempo que coincide con la transición CSS
+    }, 2000); // Mostrar la animación por 2 segundos
 });
 const navbar = document.getElementById('navbar');
 const hamburger = document.querySelector('.hamburger');

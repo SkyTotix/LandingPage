@@ -1,149 +1,319 @@
 /* ===========================
-   VARIABLES CSS
+   VARIABLES CSS - SISTEMA DE DISEÑO
    =========================== */
+/**
+ * Variables CSS personalizadas para mantener consistencia en el diseño
+ * Facilita el mantenimiento y permite cambios globales rápidos
+ * Optimizado para SEO: nombres semánticos y estructura organizada
+ */
 :root {
-    /* Colores principales */
-    --primary-color: #F2E96D; /* Amarillo vibrante - Color principal */
-    --secondary-color: #090B0D; /* Negro/Gris oscuro - Para contraste */
-    --accent-color: #F2E96D; /* Amarillo - Para detalles */
-    --text-dark: #090B0D;
-    --text-light: #4A4A4A;
-    --bg-light: #F2F2F2;
-    --bg-white: #FFFFFF;
+    /* Paleta de colores principal - Identidad de marca */
+    --primary-color: #F2E96D;      /* Amarillo vibrante - Color principal de la marca */
+    --secondary-color: #090B0D;    /* Negro/Gris oscuro - Para contraste y legibilidad */
+    --accent-color: #F2E96D;       /* Amarillo - Para detalles y elementos destacados */
+    --text-dark: #090B0D;          /* Texto principal - Alto contraste para accesibilidad */
+    --text-light: #4A4A4A;         /* Texto secundario - Menor jerarquía visual */
+    --bg-light: #F2F2F2;           /* Fondo claro - Secciones alternativas */
+    --bg-white: #FFFFFF;           /* Blanco puro - Fondos principales y tarjetas */
     
-    /* Tipografía */
-    --font-primary: 'Playfair Display', serif;
-    --font-secondary: 'Poppins', sans-serif;
+    /* Sistema tipográfico - Jerarquía visual clara */
+    --font-primary: 'Playfair Display', serif;  /* Fuente principal - Títulos y elementos destacados */
+    --font-secondary: 'Poppins', sans-serif;    /* Fuente secundaria - Texto de lectura y UI */
     
-    /* Espaciado */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 3rem;
-    --spacing-xl: 4rem;
+    /* Sistema de espaciado - Ritmo vertical consistente */
+    --spacing-xs: 0.5rem;   /* 8px - Espaciado mínimo entre elementos */
+    --spacing-sm: 1rem;     /* 16px - Espaciado pequeño para componentes */
+    --spacing-md: 2rem;     /* 32px - Espaciado medio entre secciones */
+    --spacing-lg: 3rem;     /* 48px - Espaciado grande para separación */
+    --spacing-xl: 4rem;     /* 64px - Espaciado extra grande entre bloques */
     
-    /* Transiciones */
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.5s ease;
-    --transition-slow: 0.8s ease;
+    /* Sistema de transiciones - Experiencia de usuario fluida */
+    --transition-fast: 0.3s ease;    /* Transiciones rápidas - Estados hover */
+    --transition-medium: 0.5s ease;  /* Transiciones medias - Elementos UI */
+    --transition-slow: 0.8s ease;    /* Transiciones lentas - Animaciones complejas */
 }
 
 /* ===========================
-   RESET Y ESTILOS BASE
+   ESTILOS BASE Y RESET CSS
    =========================== */
+/**
+ * Reset CSS personalizado para consistencia cross-browser
+ * Establece una base sólida para todos los elementos
+ * Optimizado para rendimiento y accesibilidad
+ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;              /* Elimina márgenes por defecto del navegador */
+    padding: 0;             /* Elimina padding por defecto del navegador */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
+/**
+ * Configuración del elemento raíz HTML
+ * Establece comportamiento de scroll suave y tamaño base de fuente
+ */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Navegación suave entre anclas - Mejora UX */
+    font-size: 16px;        /* Tamaño base para cálculos rem - Accesibilidad */
 }
 
+/**
+ * Estilos base del body
+ * Define la tipografía principal y configuración de layout
+ */
 body {
-    font-family: var(--font-secondary);
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-    background-color: var(--bg-light);
+    font-family: var(--font-secondary); /* Fuente principal para legibilidad */
+    color: var(--text-dark);             /* Color de texto principal */
+    line-height: 1.6;                   /* Altura de línea óptima para lectura */
+    overflow-x: hidden;                  /* Previene scroll horizontal no deseado */
+    background-color: var(--bg-light);   /* Fondo base de la página */
 }
 
+/**
+ * Tipografía para encabezados
+ * Configuración consistente para jerarquía visual
+ */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary);
-    font-weight: 700;
-    line-height: 1.2;
+    font-family: var(--font-primary); /* Fuente decorativa para impacto */
+    font-weight: 700;                 /* Peso bold para énfasis */
+    line-height: 1.2;                 /* Altura de línea compacta para títulos */
 }
 
+/**
+ * Estilos base para enlaces
+ * Configuración consistente para todos los enlaces del sitio
+ */
 a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition-fast);
+    text-decoration: none;           /* Elimina subrayado por defecto */
+    color: inherit;                  /* Hereda color del elemento padre */
+    transition: var(--transition-fast); /* Transición suave para estados hover */
 }
 
+/**
+ * Estilos base para imágenes
+ * Configuración responsive y accesible para todas las imágenes
+ */
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%;  /* Previene desbordamiento en contenedores pequeños */
+    height: auto;     /* Mantiene proporción de aspecto */
 }
 
+/**
+ * Contenedor principal responsive
+ * Sistema de grid centralizado con padding lateral
+ */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px; /* Ancho máximo para legibilidad óptima */
+    margin: 0 auto;    /* Centrado horizontal */
+    padding: 0 20px;   /* Espaciado lateral en dispositivos móviles */
+}
+
+/**
+ * Clase de accesibilidad para lectores de pantalla
+ * Oculta visualmente el contenido pero lo mantiene accesible para tecnologías asistivas
+ * Esencial para SEO y cumplimiento de estándares de accesibilidad WCAG
+ */
+.sr-only {
+    position: absolute !important;   /* Posicionamiento absoluto para sacarlo del flujo */
+    width: 1px !important;           /* Ancho mínimo para mantener en DOM */
+    height: 1px !important;          /* Alto mínimo para mantener en DOM */
+    padding: 0 !important;           /* Sin padding para minimizar espacio */
+    margin: -1px !important;         /* Margen negativo para ocultar completamente */
+    overflow: hidden !important;     /* Oculta cualquier desbordamiento */
+    clip: rect(0, 0, 0, 0) !important; /* Recorte para compatibilidad con navegadores antiguos */
+    white-space: nowrap !important;  /* Previene salto de línea */
+    border: 0 !important;            /* Sin borde */
 }
 
 /* ===========================
-   PRELOADER
+   PRELOADER - PANTALLA DE CARGA
    =========================== */
+/**
+ * Preloader con animación de libros flotantes
+ * Mejora la experiencia de usuario durante la carga inicial
+ * Optimizado para SEO: reduce bounce rate y mejora engagement
+ */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-light);
-    z-index: 9999;
+    position: fixed;        /* Posición fija para cubrir toda la pantalla */
+    top: 0;                /* Alineado al borde superior */
+    left: 0;               /* Alineado al borde izquierdo */
+    width: 100%;           /* Ancho completo de la ventana */
+    height: 100%;          /* Alto completo de la ventana */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Gradiente sutil */
+    z-index: 9999;         /* Z-index alto para estar sobre todo el contenido */
+    display: flex;         /* Flexbox para centrado perfecto */
+    flex-direction: column; /* Disposición vertical de elementos */
+    align-items: center;   /* Centrado horizontal */
+    justify-content: center; /* Centrado vertical */
+    opacity: 1;            /* Opacidad inicial completa */
+    transition: opacity 0.5s ease-out; /* Transición suave para desaparición */
+}
+
+#preloader.fade-out {
+    opacity: 0;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.floating-books-loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.book {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateY(-30deg);
-    animation: bookFlip 2s ease-in-out infinite;
+.book-icon {
+    position: absolute;
+    width: 24px;
+    height: 32px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: floatBooks 2s ease-in-out infinite;
 }
 
-.book .inner {
+.book-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: translateZ(0) rotateY(0);
-    animation: bookOpen 2s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--primary-color) 0%, #f9f871 100%);
+    border-radius: 2px;
+    transform: translateX(-2px) translateY(-2px);
+    z-index: -1;
 }
 
-.book .left,
-.book .right {
+.book-icon::after {
+    content: '';
     position: absolute;
-    width: 50px;
-    height: 100px;
+    top: 6px;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    box-shadow: 0 6px 0 rgba(255, 255, 255, 0.2), 0 12px 0 rgba(255, 255, 255, 0.1);
+}
+
+.book-icon:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.book-icon:nth-child(2) {
+    top: 30px;
+    right: 15px;
+    animation-delay: 0.3s;
+    transform: rotate(15deg);
+}
+
+.book-icon:nth-child(3) {
+    bottom: 30px;
+    right: 15px;
+    animation-delay: 0.6s;
+    transform: rotate(-10deg);
+}
+
+.book-icon:nth-child(4) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg);
+    animation-delay: 0.9s;
+}
+
+.book-icon:nth-child(5) {
+    bottom: 30px;
+    left: 15px;
+    animation-delay: 1.2s;
+    transform: rotate(20deg);
+}
+
+.book-icon:nth-child(6) {
+    top: 30px;
+    left: 15px;
+    animation-delay: 1.5s;
+    transform: rotate(-15deg);
+}
+
+.loader-text {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out 0.5s forwards;
+}
+
+.loader-subtext {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out 1s forwards;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
     background: var(--primary-color);
-    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: loadingDots 1.5s ease-in-out infinite;
 }
 
-.book .left {
-    left: 0;
-    transform-origin: right center;
-    transform: rotateY(0);
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes floatBooks {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotation, 0deg));
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-15px) rotate(var(--rotation, 0deg));
+        opacity: 1;
+    }
 }
 
-.book .right {
-    right: 0;
-    transform-origin: left center;
-    transform: rotateY(0);
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.book .middle {
-    position: absolute;
-    width: 10px;
-    height: 100px;
-    background: var(--secondary-color);
-    left: 45px;
-    transform: translateZ(0);
-}
-
-@keyframes bookFlip {
-    0%, 100% { transform: rotateY(-30deg); }
-    50% { transform: rotateY(30deg); }
-}
-
-@keyframes bookOpen {
-    0%, 100% { transform: translateZ(0) rotateY(0); }
-    50% { transform: translateZ(20px) rotateY(-20deg); }
+@keyframes loadingDots {
+    0%, 20%, 80%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
 }
 
 /* ===========================
@@ -170,16 +340,49 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Compacto para no aumentar la altura del navbar */
     padding: 5px 0;
+
+}
+
+/* Asegurar que el contenedor del logo no se encoja y no recorte la imagen */
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;     /* evita que el flex lo comprima */
+    overflow: visible;  /* permite que el logo escalado no se recorte */
 }
 
 .logo img {
-    height: 45px;
+    /* Mantener proporciones naturales del logo */
+    height: 60px;
+    width: auto;
     transition: var(--transition-fast);
+    /* Sin transformaciones para evitar distorsión */
 }
 
-.logo img:hover {
+/* Cuando se hace scroll, compactamos el header y el logo */
+.navbar.scrolled .nav-wrapper { padding: 4px 0; }
+.navbar.scrolled .logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Responsivo: en móviles mantenemos un tamaño cómodo */
+@media (max-width: 768px) {
+    .logo img {
+        height: 50px;
+        width: auto;
+    }
+    .navbar.scrolled .logo img {
+        height: 40px;
+        width: auto;
+    }
+}
+
+.logo img:hover { 
     transform: scale(1.05);
+    transition: var(--transition-fast);
 }
 
 .nav-menu {
@@ -222,6 +425,26 @@ img {
     height: 3px;
     background: var(--text-dark);
     transition: var(--transition-fast);
+}
+
+/* Aumentar ligero el ancho del header para separar logo y categorías */
+@media (min-width: 1200px) {
+    .navbar .container {
+        max-width: 1200px; /* antes 1200px (solo en navbar) */
+    }
+
+    .container-nav {
+        padding: 20px 45px;
+        width: 100%; /* antes 1200px (solo en navbar) */
+    }
+}
+
+/* Mover el logo más a la izquierda en escritorio reduciendo el padding izquierdo del contenedor */
+@media (min-width: 992px) {
+    .navbar .container {
+        padding-left: 8px;   /* antes 20px */
+        padding-right: 24px; /* un pelín más de aire a la derecha */
+    }
 }
 
 /* ===========================
@@ -1403,4 +1626,4 @@ img {
         font-size: 1rem;
         margin-bottom: 6px;
     }
-} 
+}

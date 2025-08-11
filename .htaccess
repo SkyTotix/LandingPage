@@ -1,0 +1,142 @@
+# .htaccess para MR.BEELECTOR - Librería y Café Literario
+# Optimizado para SEO, rendimiento y seguridad
+
+# ========================================
+# CONFIGURACIÓN DE COMPRESIÓN GZIP
+# ========================================
+# Mejora la velocidad de carga comprimiendo archivos
+<IfModule mod_deflate.c>
+    # Comprimir archivos de texto
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ========================================
+# CONFIGURACIÓN DE CACHÉ DEL NAVEGADOR
+# ========================================
+# Mejora el rendimiento estableciendo tiempos de caché apropiados
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes - caché por 1 año
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS y JavaScript - caché por 1 mes
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fuentes - caché por 1 año
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML - caché por 1 hora
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # Documentos - caché por 1 semana
+    ExpiresByType application/pdf "access plus 1 week"
+</IfModule>
+
+# ========================================
+# HEADERS DE SEGURIDAD Y SEO
+# ========================================
+<IfModule mod_headers.c>
+    # Seguridad
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Cache Control para recursos estáticos
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+</IfModule>
+
+# ========================================
+# REDIRECCIONES Y URL AMIGABLES
+# ========================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Forzar HTTPS (cuando esté disponible)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Forzar www (opcional)
+    # RewriteCond %{HTTP_HOST} !^www\.
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Remover trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{THE_REQUEST} /+[^?\s]*?/[?\s]
+    RewriteRule ^(.*)/ /$1 [R=301,L]
+</IfModule>
+
+# ========================================
+# CONFIGURACIÓN DE TIPOS MIME
+# ========================================
+<IfModule mod_mime.c>
+    # Fuentes web
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+    
+    # Archivos de manifiesto
+    AddType application/manifest+json .webmanifest
+    AddType application/x-web-app-manifest+json .webapp
+    
+    # Archivos de configuración
+    AddType text/cache-manifest .appcache
+</IfModule>
+
+# ========================================
+# PROTECCIÓN DE ARCHIVOS SENSIBLES
+# ========================================
+# Bloquear acceso a archivos de configuración
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "robots.txt">
+    Order allow,deny
+    Allow from all
+</Files>
+
+<Files "sitemap.xml">
+    Order allow,deny
+    Allow from all
+</Files>
+
+# Bloquear acceso a archivos de desarrollo
+<FilesMatch "\.(log|md|txt)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ========================================
+# OPTIMIZACIÓN DE RENDIMIENTO
+# ========================================
+# Deshabilitar ETags para mejor caching
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
